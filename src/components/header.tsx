@@ -1,8 +1,8 @@
-import HeaderIcon from '@/assets/header-icon.png'
 import { Separator } from '@radix-ui/react-separator'
 import { Home, List } from 'lucide-react'
 import { ModeToggle } from './theme/theme-toggle'
 import { NavLink } from './nav-link'
+import HeaderIcon from '@/assets/header-icon.svg'
 
 export function Header () {
   return (

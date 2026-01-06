@@ -1,10 +1,20 @@
 import axios from 'axios'
 import { env } from '../env'
+import camelcaseKeys from 'camelcase-keys'
 
 export const api = axios.create({
-  baseURL: env.POKEMON_API_URL,
+  baseURL: env.VITE_API_URL,
   withCredentials: false
 })
+
+api.interceptors.response.use(
+  function (response) {
+    return {
+      ...response,
+      data: camelcaseKeys(response.data, { deep: true })
+    }
+  }
+)
 
 if (env.VITE_ENABLE_API_DELAY) {
   api.interceptors.request.use(async (config) => {
