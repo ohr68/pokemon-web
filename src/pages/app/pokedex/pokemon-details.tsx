@@ -1,5 +1,5 @@
 import { Seo } from '@/components/seo.tsx'
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { camelCase, cn } from '@/lib/utils.ts'
 import { ArrowLeftIcon } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query'
@@ -28,7 +28,9 @@ export function PokemonDetails () {
       />
       <div className='flex w-full flex-col items-center justify-center overflow-y-auto overflow-x-hidden'>
         <div className='flex w-full items-center'>
-          <ArrowLeftIcon />
+          <NavLink to='/'>
+            <ArrowLeftIcon />
+          </NavLink>
           <div className='flex w-full justify-center'>
             <span className='font-semibold text-2xl'>{camelCase(pokemon?.name ?? 'Pokemon name')}</span>
           </div>
